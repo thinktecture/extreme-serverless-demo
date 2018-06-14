@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {
+    "save": {
+      "matchCondition": {
+        "route": "/api/save",
+        "methods": [
+          "POST"
+        ]
+      },
+      "backendUri": "https://%WEBSITE_HOSTNAME%/api/addchatmessage"
+    },
+    "config": {
+      "matchCondition": {
+        "route": "/api/config",
+        "methods": [
+          "GET",
+          "OPTIONS"
+        ]
+      },
+      "backendUri": "https://%WEBSITE_HOSTNAME%/api/getsignalrconfiguration"
+    },
+    "default": {
+      "matchCondition": {
+        "route": "",
+        "methods": [
+          "GET",
+          "OPTIONS"
+        ]
+      },
+      "backendUri": "https://xtremeserverlessfilez.z4.web.core.windows.net/"
+    },
+    "files": {
+      "matchCondition": {
+        "route": "{*path}",
+        "methods": [
+          "GET",
+          "OPTIONS"
+        ]
+      },
+      "backendUri": "https://xtremeserverlessfilez.z4.web.core.windows.net/{path}"
+    }
+  }
+}

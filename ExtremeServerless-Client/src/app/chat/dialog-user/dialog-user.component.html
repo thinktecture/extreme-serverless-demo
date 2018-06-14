@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Welcome</h2>
+
+<mat-dialog-content>
+  <form (ngSubmit)="onSave()" [formGroup]="formGroup">
+    <mat-form-field>
+      <input matInput name="username" placeholder="Username" formControlName="username">
+      <mat-error>This field is required</mat-error>
+    </mat-form-field>
+    <button mat-mini-fab type="submit" [disabled]="formGroup.invalid">Start</button>
+  </form>
+</mat-dialog-content>
