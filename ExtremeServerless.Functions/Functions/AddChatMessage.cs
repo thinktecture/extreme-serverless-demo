@@ -11,7 +11,7 @@ namespace ExtremeServerless.Functions
     {
         [FunctionName("AddChatMessage")]
         public static HttpResponseMessage Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
+            [HttpTrigger(AuthorizationLevel.Anonymous, "POST", Route = null)]
             ChatMessage chatMessage,
             [DocumentDB("chatsystem", "messages", Id = "id", ConnectionStringSetting = "CosmosDB")]
             out dynamic document,

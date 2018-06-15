@@ -6,6 +6,7 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace ExtremeServerless.Functions
 {
@@ -26,11 +27,14 @@ namespace ExtremeServerless.Functions
                 var messagesToBroadcast = documents.Select((doc) => new
                 {
                     message = doc.GetPropertyValue<string>("message"),
-                    user = doc.GetPropertyValue<string>("user")
+                    user = doc.GetPropertyValue<User>("user")
                 });
 
+                var ser = new JsonSerializerSettings();
+                ser.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                
                 await signalR.SendAsync("chatServerlessHub", "NewMessages", 
-                    JsonConvert.SerializeObject(messagesToBroadcast));
+                    JsonConvert.SerializeObject(messagesToBroadcast, ser));
             }
         }
     }

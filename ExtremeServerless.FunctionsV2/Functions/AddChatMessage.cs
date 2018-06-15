@@ -10,7 +10,7 @@ namespace ExtremeServerless.Functions
     {
         [FunctionName("AddChatMessage")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]
+            [HttpTrigger(AuthorizationLevel.Anonymous, "POST")]
             ChatMessage chatMessage,
             [CosmosDB("chatsystem", "messages", Id = "id", ConnectionStringSetting = "CosmosDB")]
             out dynamic document,
@@ -19,8 +19,8 @@ namespace ExtremeServerless.Functions
             document = new
             {
                 id = Guid.NewGuid(),
-                user = chatMessage.user,
-                message = chatMessage.message
+                user = chatMessage.User,
+                message = chatMessage.Message
             };
 
             return new OkResult();

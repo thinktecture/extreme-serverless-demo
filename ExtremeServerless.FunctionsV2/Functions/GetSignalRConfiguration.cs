@@ -14,7 +14,7 @@ namespace ExtremeServerless.Functions
 
         [FunctionName("GetSignalRConfiguration")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous)]
+            [HttpTrigger(AuthorizationLevel.Anonymous, "GET")]
             HttpRequest req,
             TraceWriter log)
         {

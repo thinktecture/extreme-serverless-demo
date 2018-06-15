@@ -2,7 +2,7 @@
 {
     public class ChatMessage
     {
-        public string user { get; set; }
-        public string message { get; set; }
+        public User User { get; set; }
+        public string Message { get; set; }
     }
 }
