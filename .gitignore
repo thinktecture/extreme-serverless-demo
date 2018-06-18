@@ -267,3 +267,4 @@ ExtremeServerless-Client/dist
 local.settings.json
 ExtremeServerless.FunctionsV2/.terraform/
 *.tfstate
+.terraform
