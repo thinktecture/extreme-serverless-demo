@@ -1,6 +1,6 @@
 # eXtreme Serverless Azure Demo
 
-Demo scenario and code for a possible incarnation of the 'Serverless vision' with Azure - will change and evolve over time...
+Demo scenario and code for a possible incarnation of the 'Serverless vision' with Azure - will change and evolve over time.
 
 Azure technologies used:
 
