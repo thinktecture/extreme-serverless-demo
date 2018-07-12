@@ -41,7 +41,7 @@
           "OPTIONS"
         ]
       },
-      "backendUri": "https://xtremeserverlessfilez.z4.web.core.windows.net/"
+      "backendUri": "https://xtremeserverlessfiles.z6.web.core.windows.net/"
     },
     "files": {
       "matchCondition": {
@@ -51,7 +51,7 @@
           "OPTIONS"
         ]
       },
-      "backendUri": "https://xtremeserverlessfilez.z4.web.core.windows.net/{path}"
+      "backendUri": "https://xtremeserverlessfiles.z6.web.core.windows.net/{path}"
     }
   }
 }
