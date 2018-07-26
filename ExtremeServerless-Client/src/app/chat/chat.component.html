@@ -15,11 +15,7 @@
       <form [formGroup]="formGroup" (ngSubmit)="sendMessage()" #messageForm="ngForm">
         <mat-icon>message</mat-icon>
         <mat-form-field class="chat-input">
-          <input matInput
-                 #inputMessage
-                 maxlength="140"
-                 placeholder="Type your message"
-                 formControlName="messageContent">
+          <input matInput #inputMessage maxlength="140" placeholder="Type your message" formControlName="messageContent" autocomplete="nope">
           <mat-hint align="end">{{inputMessage.value.length}}/140</mat-hint>
 
         </mat-form-field>

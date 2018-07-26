@@ -3,7 +3,7 @@
 <mat-dialog-content>
   <form (ngSubmit)="onSave()" [formGroup]="formGroup">
     <mat-form-field>
-      <input matInput name="username" placeholder="Username" formControlName="username">
+      <input matInput name="username" placeholder="Username" formControlName="username" autocomplete="nope">
       <mat-error>This field is required</mat-error>
     </mat-form-field>
     <button mat-mini-fab type="submit" [disabled]="formGroup.invalid">Start</button>
