@@ -1,14 +1,12 @@
-# eXtreme Serverless Azure Demo
-
-Demo scenario and code for a possible incarnation of the 'Serverless vision' with Azure - will change and evolve over time.
+# Realtime Chat Demo
 
 Azure technologies used:
 
-* Azure Functions
-* Azure Functions Proxies
-* Azure Blob Storage
-* Azure Cosmos DB
-* Azure SignalR Service
+- Azure Functions
+- Azure Functions Proxies
+- Azure Blob Storage
+- Azure Cosmos DB
+- Azure SignalR Service
 
 Folders and projects:
 
