@@ -30,8 +30,7 @@
       "type": "shell",
       "dependsOn": "build",
       "options": {
-        "cwd":
-          "${workspaceFolder}/webapi-crud-ef-core/functions-proxy/bin/Debug/netstandard2.0"
+        "cwd": "${workspaceFolder}/functions-proxy/bin/Debug/netstandard2.0"
       },
       "command": "func host start",
       "isBackground": true,

@@ -14,7 +14,7 @@ namespace TodoApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TodoContext>(opt => 
+            services.AddDbContext<TodoContext>(opt =>
                 opt.UseInMemoryDatabase("TodoList"));
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -24,14 +24,14 @@ namespace TodoApi
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "ToDo API",
+                    Title = "Todo API",
                     Description = "A simple example ASP.NET Core Web API",
                     TermsOfService = "None"
                 });
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
+                var xmlPath = Path.Combine(new FileInfo(typeof(Startup).Assembly.Location).Directory.Parent.FullName, xmlFile);
+                //c.IncludeXmlComments(xmlPath);
             });
         }
 
