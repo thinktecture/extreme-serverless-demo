@@ -1,3 +1,0 @@
-[submodule "WebJobs.Extensions.SignalRService"]
-	path = realtime/WebJobs.Extensions.SignalRService
-	url = https://christianweyer@github.com/ChristianWeyer/AzureAdvocates.WebJobs.Extensions.SignalRService
