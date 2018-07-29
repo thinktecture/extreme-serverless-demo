@@ -9,7 +9,9 @@
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.13"/>
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.2.2"/>
     <PackageReference Include="UAParser" Version="3.0.0"/>
-    <PackageReference Include="AzureAdvocates.WebJobs.Extensions.SignalRService" Version="0.2.0-alpha"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../WebJobs.Extensions.SignalRService/src/Microsoft.Azure.WebJobs.Extensions.SignalRService.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

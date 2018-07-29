@@ -33,11 +33,9 @@ namespace ExtremeServerless.Functions
                 var ser = new JsonSerializerSettings();
                 ser.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
-                await signalRMessages.AddAsync(new SignalRMessage()
-                {
-                    Target = "NewMessages",
-                    Arguments = new object[] { JsonConvert.SerializeObject(messagesToBroadcast, ser) }
-                });
+                await signalRMessages.AddAsync(new SignalRMessage(
+                    "NewMessages",
+                    new object[] { JsonConvert.SerializeObject(messagesToBroadcast, ser) }));
             }
         }
     }
