@@ -31,7 +31,7 @@ namespace TodoApi
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(new FileInfo(typeof(Startup).Assembly.Location).Directory.Parent.FullName, xmlFile);
-                //c.IncludeXmlComments(xmlPath);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 

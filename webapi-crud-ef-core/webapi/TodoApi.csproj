@@ -14,4 +14,13 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.2"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.1"/>
   </ItemGroup>
+
+  <ItemGroup>
+    <FilesToCopy Include="$(OutDir)\TodoApi.xml"/>
+  </ItemGroup>
+  <Target Name="Copy" AfterTargets="Build">
+      <Copy SourceFiles="@(FilesToCopy)"
+            DestinationFolder="$(ProjectDir)..\functions-proxy\$(OutDir)"
+            ContinueOnError="true"/>
+    </Target>
 </Project>

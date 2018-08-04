@@ -35,6 +35,4 @@
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
   </ItemGroup>
-
-  <Import Project="$(MSBuildProjectDirectory)\build\copy-output.targets" />
 </Project>
