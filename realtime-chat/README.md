@@ -10,17 +10,11 @@ Azure technologies used:
 
 Folders and projects:
 
-## ExtremeServerless.Functions
-
-A serverless implementation of a simple realtime chat solution.
-
-_Based on Azure Functions runtime and SDK v1._
-
 ## ExtremeServerless.FunctionsV2
 
 A serverless implementation of a simple realtime chat solution.
 
-_Based on Azure Functions runtime and SDK v2. Still very incomplete and buggy as v2 is under heavy development and available as a preview only_
+_Based on Azure Functions runtime and SDK v2._
 
 ## ExtremeServerless-Client
 
