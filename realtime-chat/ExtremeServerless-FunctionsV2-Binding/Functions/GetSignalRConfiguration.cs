@@ -5,6 +5,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Extensions.SignalRService;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace ExtremeServerless.Functions
 {
@@ -15,8 +16,8 @@ namespace ExtremeServerless.Functions
             [HttpTrigger(AuthorizationLevel.Anonymous, "GET", Route="config")]
             HttpRequest req,
             [SignalRConnectionInfo(HubName = "chatServerlessHub")]
-            AzureSignalRConnectionInfo connectionInfo,
-            TraceWriter log)
+            SignalRConnectionInfo connectionInfo,
+            ILogger log)
         {
             return connectionInfo != null
                 ? (ActionResult)new OkObjectResult(connectionInfo)

@@ -1,4 +1,4 @@
 export class ConnectionConfig {
-  hubUrl: string;
+  url: string;
   accessToken: string;
 }

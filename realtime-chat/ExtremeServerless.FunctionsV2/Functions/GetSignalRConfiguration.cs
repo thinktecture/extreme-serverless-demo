@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace ExtremeServerless.Functions
 {
@@ -14,14 +15,14 @@ namespace ExtremeServerless.Functions
 
         [FunctionName("GetSignalRConfiguration")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "GET")]
+            [HttpTrigger(AuthorizationLevel.Anonymous, "GET", Route="config")]
             HttpRequest req,
-            TraceWriter log)
+            ILogger log)
         {
             return new OkObjectResult(
                 new
                 {
-                    hubUrl = signalR.GetClientHubUrl("chatServerlessHub"),
+                    url = signalR.GetClientHubUrl("chatServerlessHub"),
                     accessToken = signalR.GenerateAccessToken("chatServerlessHub")
                 });
         }

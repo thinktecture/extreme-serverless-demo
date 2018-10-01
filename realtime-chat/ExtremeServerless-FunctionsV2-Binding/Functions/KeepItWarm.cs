@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace ExtremeServerless.Functions
 {
@@ -10,9 +11,9 @@ namespace ExtremeServerless.Functions
         public static void Run(
             [TimerTrigger("0 */9 * * * *")]
             TimerInfo myTimer,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
         }
     }
 }

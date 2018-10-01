@@ -1,11 +1,11 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import * as signalR from '@aspnet/signalr';
-import {HubConnection, IHttpConnectionOptions} from '@aspnet/signalr';
-import {environment} from 'environments/environment';
-import {Observable, Subject} from 'rxjs';
-import {ConnectionConfig} from '../model/connectionConfig';
-import {Message} from '../model/message';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import * as signalR from "@aspnet/signalr";
+import { HubConnection, IHttpConnectionOptions } from "@aspnet/signalr";
+import { environment } from "environments/environment";
+import { Observable, Subject } from "rxjs";
+import { ConnectionConfig } from "../model/connectionConfig";
+import { Message } from "../model/message";
 
 @Injectable()
 export class ChatService {
@@ -22,23 +22,21 @@ export class ChatService {
     console.log(`Initializing ChatService...`);
 
     this.getConnectionInfo().subscribe(config => {
-      console.log(`Received info for endpoint ${config.hubUrl}`);
+      console.log(`Received info for endpoint ${config.url}`);
 
       const options: IHttpConnectionOptions = {
-        accessTokenFactory: () => config.accessToken,
+        accessTokenFactory: () => config.accessToken
       };
 
       this._hubConnection = new signalR.HubConnectionBuilder()
-        .withUrl(config.hubUrl, options)
+        .withUrl(config.url, options)
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
       this._hubConnection.start().catch(err => console.error(err.toString()));
       // TODO: only start when no error from start()...
-      this._hubConnection.on('NewMessages', (data: any) => {
-        // Seems we need to do this with the early stage of SignalR...
-        const message = JSON.parse(data);
-        this._messagesSubject.next(message);
+      this._hubConnection.on("NewMessages", (data: any) => {
+        this._messagesSubject.next(data);
       });
     });
   }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -14,13 +15,13 @@ namespace ExtremeServerless.Functions
     {
         private static AzureSignalR signalR = new AzureSignalR(
             Environment.GetEnvironmentVariable("SignalR"));
-        
+
         [FunctionName("NotifyClientsWithMessage")]
         public static async Task Run(
-            [CosmosDBTrigger("chatsystem", "messages", 
+            [CosmosDBTrigger("chatsystem", "messages",
                 ConnectionStringSetting = "CosmosDB")]
-            IReadOnlyList<Document> documents, 
-            TraceWriter log)
+            IReadOnlyList<Document> documents,
+            ILogger log)
         {
             if (documents != null && documents.Count > 0)
             {
@@ -32,8 +33,8 @@ namespace ExtremeServerless.Functions
 
                 var ser = new JsonSerializerSettings();
                 ser.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                
-                await signalR.SendAsync("chatServerlessHub", "NewMessages", 
+
+                await signalR.SendAsync("chatServerlessHub", "NewMessages",
                     JsonConvert.SerializeObject(messagesToBroadcast, ser));
             }
         }
