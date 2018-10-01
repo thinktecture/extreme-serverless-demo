@@ -10,7 +10,7 @@ Azure technologies used:
 
 Folders and projects:
 
-## ExtremeServerless.FunctionsV2
+## ExtremeServerless-FunctionsV2
 
 A serverless implementation of a simple realtime chat solution.
 
