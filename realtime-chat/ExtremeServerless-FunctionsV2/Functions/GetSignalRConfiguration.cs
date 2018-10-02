@@ -7,7 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.SignalRService;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
-namespace ExtremeServerless.Functions
+namespace Serverless
 {
     public static class GetSignalRConfiguration
     {

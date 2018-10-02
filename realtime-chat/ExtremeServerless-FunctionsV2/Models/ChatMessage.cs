@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ExtremeServerless.Functions
+namespace Serverless
 {
     public class ChatMessage
     {
