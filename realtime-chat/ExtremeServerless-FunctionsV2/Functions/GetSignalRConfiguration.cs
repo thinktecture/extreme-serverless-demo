@@ -15,8 +15,10 @@ namespace Serverless
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "GET", Route="config")]
             HttpRequest req,
+
             [SignalRConnectionInfo(HubName = "chatServerlessHub")]
             SignalRConnectionInfo connectionInfo,
+
             ILogger log)
         {
             return connectionInfo != null
