@@ -23,7 +23,7 @@ namespace Serverless
             CWDBContext dbContext,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("###ListProducts trigger function processed a request.");
 
             var products = dbContext.Products.Select(p => new 
             {
@@ -43,9 +43,14 @@ namespace Serverless
             long id,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("###GetProduct function processed a request.");
 
             var product = dbContext.Products.Where(p => p.ProductId == id).FirstOrDefault();
+
+            if(product == null)
+            {
+                return new NotFoundResult();
+            }
 
             return new OkObjectResult(product);
         }
