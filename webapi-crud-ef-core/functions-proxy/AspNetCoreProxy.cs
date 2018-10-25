@@ -50,9 +50,9 @@ namespace AspNetCoreProxyFunctionApp
                 "get", "post", "put", "patch", "options",
                 Route = "{*x:regex(^(?!admin|debug|monitoring).*$)}")]
             HttpRequestMessage req,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("***HTTP trigger - ASP.NET Core Proxy: function processed a request.");
+            log.LogInformation("***HTTP trigger - ASP.NET Core Proxy: function processed a request.");
 
             var response = await Client.SendAsync(req);
 

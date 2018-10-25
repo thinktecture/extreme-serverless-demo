@@ -18,7 +18,7 @@ namespace TodoApi.Controllers
 
             if (_context.TodoItems.Count() == 0)
             {
-                _context.TodoItems.Add(new TodoItem { Name = "Item1" });
+                _context.TodoItems.Add(new TodoItem { Name = "Item 1" });
                 _context.SaveChanges();
             }
         }
@@ -65,6 +65,11 @@ namespace TodoApi.Controllers
         [ProducesResponseType(400)]
         public ActionResult<TodoItem> Create(TodoItem item)
         {
+            if (item == null)
+            {
+                return BadRequest();
+            }
+
             _context.TodoItems.Add(item);
             _context.SaveChanges();
 
