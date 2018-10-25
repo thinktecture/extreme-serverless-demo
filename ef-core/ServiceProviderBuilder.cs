@@ -9,15 +9,13 @@ namespace Serverless
 {
     public class ServiceProviderBuilder : IServiceProviderBuilder
     {
+        private readonly IConfiguration _configuration;
+
+        public ServiceProviderBuilder(IConfiguration configuration) => _configuration = configuration;
+
         public IServiceProvider Build()
         {
-            IConfigurationRoot config = new ConfigurationBuilder()
-                .SetBasePath(Environment.CurrentDirectory)
-                .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
-                .AddEnvironmentVariables()
-                .Build();
-
-            var connectionString = config.GetConnectionString("SqlConnectionString");
+            var connectionString = _configuration["SqlConnectionString"];
 
             var services = new ServiceCollection();
             services.AddDbContext<CWDBContext>(options => options.UseSqlServer(connectionString));
