@@ -11,7 +11,7 @@ namespace AspNetCoreProxyFunctionApp
     public static class AspNetCoreProxy
     {
         private static readonly HttpClient Client =
-            new InMemoryAspNetCoreProxy().CreateClientFor<Startup>();
+            new InMemoryAspNetCoreHost().CreateClientFor<Startup>();
 
         [FunctionName("AspNetCoreProxy")]
         public static async Task<HttpResponseMessage> Run(
